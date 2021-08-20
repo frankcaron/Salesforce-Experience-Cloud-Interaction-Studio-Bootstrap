@@ -2,7 +2,7 @@
 
 ## Overview
 
-The following SFDX repo includes the full build out for the Capricorn Coffee microsite app. This repo will be used to move the microsite app config between orgs, and it'll also allow us to distribute the build to our SEs for deployment given the Trailforcing issues.
+The following SFDX repo includes the web template for using Interaction Studio Solution Kit with an Experience Cloud site. This repo will be used to move the microsite app config between orgs, and it'll also allow us to distribute the build to our SEs for deployment given the Trailforcing issues.
 
 ## Deploy Instructions
 
