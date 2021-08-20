@@ -1,0 +1,220 @@
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Welcome to LWC Communities!</title>
+
+<link rel="stylesheet" href="{ basePath }/assets/styles/styles.css?{ versionKey }" />
+
+
+<!-- webruntime-branding-shared stylesheets -->
+<link rel="stylesheet" href="{ basePath }/assets/styles/salesforce-lightning-design-system.min.css?{ versionKey }" />
+<link rel="stylesheet" href="{ basePath }/assets/styles/dxp-site-spacing-styling-hooks.min.css?{ versionKey }" /><link rel="stylesheet" href="{ basePath }/assets/styles/dxp-styling-hooks.min.css?{ versionKey }" />
+<link rel="stylesheet" href="{ basePath }/assets/styles/dxp-slds-extensions.min.css?{ versionKey }" />
+
+<!-- CSS Overrides -->
+<style>
+    /* Variables */
+    :root {
+        --dxp-custom-brand-color: #d10024;
+    }
+
+    /* Nav */
+    nav a {
+        text-decoration: underline !important;
+        color: var(--dxp-g-brand) !important;
+        font-weight: bold;
+        font-size: 22px !important;
+    }
+
+    /* Fix Banner */
+    @media only screen and (max-width: 700px) {
+        .evg-left {
+            padding: none;
+        }
+    }
+     /* Footer */
+    div.capricorn-footer {
+        background-image: url('/sfsites/c/resource/1628630509000/capricornBackgroundImage?');
+        background-position: bottom center;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 250px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+    div.capricorn-footer-content {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-direction: column;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        color: #fff !important;
+    }
+    div.capricorn-footer-content-node {
+        font-size: 12px;
+        display: flex;
+        flex-direction: row;
+    }
+    div.capricorn-footer-content-node a {
+        font-size: 14px;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-weight: bolder;
+        color: #fff !important;
+    }
+
+    /* Form Inputs */
+    div.dxp-form-dynamic-form-container .slds-form-element__label {
+        font-size: 20px;
+        padding: 5px;
+    }
+    div.dxp-form-dynamic-form-container .slds-input {
+        font-size: 20px !important;
+        padding: 10px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    div.dxp-form-dynamic-form-container .slds-button {
+        font-size: 20px;
+    	margin-top: 20px;
+    }
+    div.dxp-form-dynamic-form-container .dxp-form-dynamic-button-container {
+        justify-content: center !important;
+    }
+
+    /* Content Detail Pages */
+    div.capricorn-features hr {
+        border-top: 4px solid var(--dxp-custom-brand) !important;
+    }
+    div.capricorn-features h1 {
+        font-size: 28px;
+        margin-bottom: 20px;
+        text-align: center;
+        color: #AAA;
+        var(--dxp-s-text-heading-large-font-family,var(--dxp-g-heading-font-family))
+    }
+    li.capricorn-features-block-item {
+        font-size: 20px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        text-align: center;
+
+        -webkit-animation: fadein 10s; /* Safari, Chrome and Opera > 12.1 */
+        -moz-animation: fadein 10s; /* Firefox < 16 */
+         -ms-animation: fadein 10s; /* Internet Explorer */
+          -o-animation: fadein 10s; /* Opera < 12.1 */
+             animation: fadein 10s;
+    }
+
+    @keyframes fadein {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
+
+    /* Firefox < 16 */
+    @-moz-keyframes fadein {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
+
+    /* Safari, Chrome and Opera > 12.1 */
+    @-webkit-keyframes fadein {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
+
+    /* Internet Explorer */
+    @-ms-keyframes fadein {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
+
+    /* Opera < 12.1 */
+    @-o-keyframes fadein {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
+
+    /* Form */
+    .dxp-form-dynamic-form-container {
+        padding: 20px !important;
+    }
+
+</style>
+
+<!-- Interaction Studio -->
+<script type="text/javascript" src="//cdn.evgnet.com/beacon/interactionstudio/fc_exc/scripts/evergage.min.js"></script>
+
+<!--
+Copyright (c) 2021, salesforce.com, inc.
+All rights reserved.
+SPDX-License-Identifier: BSD-3-Clause
+For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+-->
+
+<script type="text/javascript">
+    var interactionStudioExperienceCloudHelpers = {
+        /* Container for the captured user data */
+        userData: null,
+
+        /**
+        * The following function checks if website is running in
+        * Experience Cloud Builder Context based on the current hostname.
+        * If YES, it sends an Event to all Interaction Studio LWCs to show
+        * placeholder content.
+        */
+        catchBuilderContext: function(){
+            const hostname = window?.location?.hostname?.toLowerCase();
+
+            if(
+                hostname?.indexOf('sitepreview') > 0
+                || hostname?.indexOf('livepreview') > 0
+                || window.localStorage.getItem('evgVE') === 'true'
+            ){
+                document.dispatchEvent(new CustomEvent('interactionstudio_onbuildercontextdetected'));
+            }
+        }
+    };
+
+
+    /**
+    * Every time a new Interaction Studio LWC is initialized, it sends an
+    * lwc_oncomponentready event. The following listener creates a hidden
+    * DIV element for every personalization component and appends it to the
+    * BODY of the page. This DIV element is used by Interaction Studio Web
+    * Templates to identify that the Personalization LWC is ready to receive
+    * personalized content.
+    */
+    document.addEventListener('lwc_oncomponentready', (e) => {
+        interactionStudioExperienceCloudHelpers.catchBuilderContext();
+
+        const contentZoneId = e.detail && e.detail.contentZone;
+
+        if (!contentZoneId || document.getElementById('#' + contentZoneId)) return;
+
+        const placeholder = document.createElement('div');
+        placeholder.id = contentZoneId;
+        placeholder.style.display = 'none';
+
+        document.body.append(placeholder);
+    });
+
+
+    /**
+    * The following listener is bypassing stat events(campaign impression/campaign click)
+    * from Personalization LWCs to Interaction Studio
+    */
+    document.addEventListener('lwc_onstatsend', (e) => {
+        Evergage.sendStat(e.detail);
+    });
+
+
+    /**
+    * The following listener is bypassing Custom Interaction Studio events
+    * from Personalization LWCs to Interaction Studio
+    */
+    document.addEventListener('lwc_oneventsend', (e) => {
+        Evergage.sendEvent(e.detail);
+    });
+</script>

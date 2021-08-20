@@ -1,0 +1,36 @@
+{
+    "unfurl_links": "true",
+    "blocks": [
+        {
+            "type": "section",
+            "text": {
+                "type": "mrkdwn",
+                "text": "Your new article titled *'Meet Our Brand New Espresso Machine!'* has been published. Check it out here: https://www.capricorncoffee.com/italia/the-fulmine"
+            }
+        },
+        {
+            "type": "section",
+            "text": {
+                "type": "mrkdwn",
+                "text": "<https://fulmine.capricorn.coffee/news/the-fulmine-MCP3TPLPIWZVCDPJZ3B73THXX5GI|The Fulmine> \n 3:20 PM, 8/11/2021"
+            }
+        },
+        {
+			"type": "image",
+			"title": {
+				"type": "plain_text",
+				"text": "The Fulmine",
+				"emoji": true
+			},
+			"image_url": "https://fulmine.capricorn.coffee/sfsites/c/cms/delivery/media/MCJSUCT4ZKPFBEXHGS7VWBQTMOJY",
+			"alt_text": "marg"
+		},
+        {
+            "type": "section",
+            "text": {
+                "type": "mrkdwn",
+                "text": "An espresso machine brews coffee by forcing pressurized water near boiling point through a 'puck' of ground coffee and a filter in order to produce a thick, concentrated coffee called espresso. The first machine for making espresso was built and patented in 1884 by Angelo Moriondo of Turin, Italy."
+            }
+        }
+    ]
+}
