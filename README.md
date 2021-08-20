@@ -12,7 +12,7 @@ The following SFDX repo includes the web template for using Interaction Studio S
 * Install the CMS Content Type Manager
 * Install Interaction Studio Components (https://github.com/salesforce-experiencecloud/interaction-studio-content-personalization) via SFDX
 * Set up Interaction Studio
-    * Add microsite domain to IS
+    * Add Experience site domain to IS
     * Add *https://cdn.evgnet.com/beacon/interactionstudio/engage/scripts/evergage.min.js*  to Trusted Sites in EC
     * Add IS URLs to CSP Trusted Sites
     * Install beacon on EXC
